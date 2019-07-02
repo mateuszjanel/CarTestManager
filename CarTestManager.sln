@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTestManager", "CarTestMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLayer", "DatabaseLayer\DatabaseLayer.csproj", "{415A6577-3A6D-482A-AC07-0EC6647B2EDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{1B81BC4F-E13A-4B62-956E-098DDD3214FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{415A6577-3A6D-482A-AC07-0EC6647B2EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{415A6577-3A6D-482A-AC07-0EC6647B2EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{415A6577-3A6D-482A-AC07-0EC6647B2EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B81BC4F-E13A-4B62-956E-098DDD3214FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B81BC4F-E13A-4B62-956E-098DDD3214FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B81BC4F-E13A-4B62-956E-098DDD3214FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B81BC4F-E13A-4B62-956E-098DDD3214FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
