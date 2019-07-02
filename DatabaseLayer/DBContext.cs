@@ -18,7 +18,7 @@ namespace DatabaseLayer
         public DbSet<Test> Tests { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
