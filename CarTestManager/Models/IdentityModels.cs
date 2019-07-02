@@ -21,7 +21,7 @@ namespace CarTestManager.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("CarTestManagerDB", throwIfV1Schema: false)
+            : base("name=CarTestManagerDB", throwIfV1Schema: false)
         {
         }
 
