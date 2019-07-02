@@ -1,4 +1,5 @@
-﻿using DatabaseLayer.Entities;
+﻿using CarTestManager.Models;
+using DatabaseLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseLayer
 {
-    public class DBContext : DbContext
+    public class DBContext : IdentityDbContext<ApplicationUser>
     {
         public DBContext() : base("name=CarTestManagerDB") { }
 

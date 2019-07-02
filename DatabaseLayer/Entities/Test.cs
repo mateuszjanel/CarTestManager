@@ -15,5 +15,6 @@ namespace DatabaseLayer.Entities
         public int CarId { get; set; }
         public Car Car { get; set; }
         public float TimeToHundred { get; set; }
+        public float Acceleration { get; set; }
     }
 }
