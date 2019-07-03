@@ -57,7 +57,7 @@ namespace Repositories.Repositories
             try
             {
                 Test test = db.Tests.Find(id);
-                db.Cars.Remove(test);
+                db.Tests.Remove(test);
                 db.SaveChanges();
             }
             catch
