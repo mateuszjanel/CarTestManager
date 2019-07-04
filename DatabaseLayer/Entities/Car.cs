@@ -14,7 +14,7 @@ namespace DatabaseLayer.Entities
         [Required] public string Model { get; set; }
         public int Year { get; set; }
         public string Engine { get; set; }
-        public float FuelConsumingPer100km { get; set; }
+        public float? FuelConsumingPer100km { get; set; }
         public ICollection<Test> Tests { get; set; }
     }
 }
