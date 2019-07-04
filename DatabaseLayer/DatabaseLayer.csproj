@@ -57,6 +57,7 @@
     <Compile Include="DBContext.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\Test.cs" />
+    <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\201907021242352_init.cs" />
     <Compile Include="Migrations\201907021242352_init.Designer.cs">
       <DependentUpon>201907021242352_init.cs</DependentUpon>
@@ -79,12 +80,6 @@
     <EmbeddedResource Include="Migrations\201907021945260_identity_add.resx">
       <DependentUpon>201907021945260_identity_add.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CarTestManager\CarTestManager.csproj">
-      <Project>{785F5412-4A01-42DB-9935-949BBB5D0945}</Project>
-      <Name>CarTestManager</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

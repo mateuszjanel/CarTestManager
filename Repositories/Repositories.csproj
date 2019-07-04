@@ -60,9 +60,9 @@
     <Compile Include="Repositories\TestRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseLayer\DataAccessLayer.csproj">
-      <Project>{415A6577-3A6D-482A-AC07-0EC6647B2EDF}</Project>
-      <Name>DataAccessLayer</Name>
+    <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj">
+      <Project>{415a6577-3a6d-482a-ac07-0ec6647b2edf}</Project>
+      <Name>DatabaseLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

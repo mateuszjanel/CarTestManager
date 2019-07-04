@@ -35,7 +35,7 @@ namespace Repositories
             catch (Exception)
             {
 
-                throw new Exception;
+                throw new Exception();
             }
         }
         public void Edit(Car car)
