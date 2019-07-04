@@ -17,7 +17,7 @@ namespace Repositories
             Car car = new Car
             {
                 Make = make,
-                Model = model,
+                CarModel = model,
                 Year = year,
                 Engine = engine,
                 FuelConsumingPer100km = fuelconsuming
