@@ -12,7 +12,7 @@ namespace Repositories
     public class CarRepository
     {
         private DBContext db = new DBContext();
-        Car Create(string make, string model, int year, string engine, float fuelconsuming)
+        public Car Create(string make, string model, int year, string engine, float? fuelconsuming)
         {
             Car car = new Car
             {

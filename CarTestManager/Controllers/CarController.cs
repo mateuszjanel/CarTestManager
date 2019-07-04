@@ -1,4 +1,4 @@
-﻿using CarTestManager.Models;
+using CarTestManager.Models;
 using DatabaseLayer.Entities;
 using Repositories;
 using System;
@@ -31,20 +31,27 @@ namespace CarTestManager.Controllers
         // GET: Car/Create
         public ActionResult Create()
         {
-            return View();
+            CreateCarModels model = new CreateCarModels();
+            return View(model);
         }
 
         // POST: Car/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CreateCarModels model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                try
+                {
+                    carRepository.Create(model.Make, model.CarModel, model.Year, model.Engine, model.FuelConsumingPer100km);
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            catch
+            else
             {
                 return View();
             }
