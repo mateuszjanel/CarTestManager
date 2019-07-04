@@ -1,12 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title — moja aplikacja platformy ASP.NET</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendo/css")
+    @*<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2019.2.619.545/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2019.2.619.545/styles/kendo.bootstrap.min.css" />*@
+
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo")
+    @*<script src="http://kendo.cdn.telerik.com/2019.2.619.545/js/kendo.all.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2019.2.619.545/js/kendo.aspnetmvc.min.js"></script>*@
+
 
 </head>
 <body>
@@ -40,6 +49,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/kendo/css")
+    @Scripts.Render("~/bundles/kendo")
+
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
