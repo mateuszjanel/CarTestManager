@@ -71,6 +71,7 @@
             {
                 <table class="table">
                     <tr>
+                        <th>Id</th>
                         <th>Time 0-100km/h</th>
                         <th>Acceleration</th>
                         <th></th>
@@ -78,6 +79,9 @@
                     @foreach (var item in Model.Tests)
                     {
                         <tr>
+                            <td>
+                                @Html.ActionLink(item.Id.ToString(), "Edit", "Test", new { id = item.Id}, null)
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.TimeToHundred) s
                             </td>

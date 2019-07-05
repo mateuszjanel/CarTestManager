@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace CarTestManager.Controllers
 {
+    [Authorize]
     public class CarController : Controller
     {
         private CarRepository carRepository = new CarRepository();
@@ -43,8 +44,8 @@ namespace CarTestManager.Controllers
             {
                 try
                 {
-                    carRepository.Create(model.Make, model.CarModel, model.Year, model.Engine);
-                    return RedirectToAction("Index");
+                    Car car = carRepository.Create(model.Make, model.CarModel, model.Year, model.Engine);
+                    return RedirectToAction("Edit", new { id = car.Id });
                 }
                 catch
                 {

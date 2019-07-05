@@ -1,0 +1,32 @@
+﻿@model CarTestManager.Models.TestMainViewModels
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Index", "Car")
+</p>
+<table class="table">
+    <tr>
+        <th>Car</th>
+        <th>Time 0-100km/h</th>
+        <th>Acceleration</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Tests) {
+    <tr>
+        <td><a href="@Url.Action("Edit", "Car", new { id = item.Car.Id })" <span>@Html.DisplayFor(modelItem => item.Car.Make)</span> <span>@Html.DisplayFor(modelItem => item.Car.CarModel)</span></td>
+        <td>@Html.DisplayFor(modelItem => item.TimeToHundred)</td>
+        <td>@Html.DisplayFor(modelItem => item.Acceleration)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
