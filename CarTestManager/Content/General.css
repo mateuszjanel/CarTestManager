@@ -14,3 +14,14 @@
         text-align: right;
         padding-bottom: 22px;
     }
+
+.img-logo {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    padding: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    height: 300px;
+}
