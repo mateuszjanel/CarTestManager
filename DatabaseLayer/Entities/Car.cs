@@ -11,6 +11,7 @@ namespace DatabaseLayer.Entities
     {
         [Key] public int Id { get; set; }
         [Required] public string Make { get; set; }
+        [Display(Name = "Model")]
         [Required] public string CarModel { get; set; }
         public int Year { get; set; }
         public string Engine { get; set; }

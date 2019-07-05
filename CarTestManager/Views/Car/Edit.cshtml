@@ -9,7 +9,7 @@
 <h2>Edit</h2>
 
 <div class="container">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
@@ -69,28 +69,28 @@
         }
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-lg-8"s>
         <div>
-            <input type="button" value="New test entry" class="btn btn-default" />
+            <input type="button" value="New test entry" class="btn btn-default" onclick="location.href='@Url.Action("Create", "Test", new { id = Model.Id}, null)'"/>
         </div>
 
         <div>
-            @if (Model.Tests != null)
+            @if (Model.Tests != null && Model.Tests.Count != 0)
             {
                 <table class="table">
                     <tr>
-                        <th>Time 0-100km/h [s]</th>
-                        <th>Acceleration [km/s^2]</th>
+                        <th>Time 0-100km/h</th>
+                        <th>Acceleration</th>
                         <th></th>
                     </tr>
                     @foreach (var item in Model.Tests)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TimeToHundred)
+                                @Html.DisplayFor(modelItem => item.TimeToHundred) s
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Acceleration)
+                                @Html.DisplayFor(modelItem => item.Acceleration) m/s<sup>2</sup>
                             </td>
                             <td class="k-chart">
                                 @(Html.Kendo().Chart()
@@ -100,7 +100,7 @@
                                       )
                                       .Series(series =>
                                       {
-                                          series.Bullet(new double?[][] { new double?[] { item.Acceleration, item.Acceleration } });
+                                          series.Bullet(new double?[][] { new double?[] { item.Acceleration, null } });
                                       })
                                       .ChartArea(chartArea => chartArea.Margin(0))
                                       .CategoryAxis(axis => axis
@@ -121,7 +121,7 @@
                                           })
                                       )
                                       .Tooltip(tooltip => tooltip
-                                          .Visible(true)
+                                          .Visible(false)
                                           .Shared(true)
                                           .Template("Maximum: #= value.target # <br /> Average: #= value.current #")
                                       )
