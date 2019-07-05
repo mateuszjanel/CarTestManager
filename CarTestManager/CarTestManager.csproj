@@ -2752,6 +2752,8 @@
     <Content Include="Scripts\kendo\messages\kendo.messages.zh-HK.min.js.map" />
     <Content Include="Scripts\kendo\messages\kendo.messages.zh-TW.min.js.map" />
     <Content Include="Views\Test\Create.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Test\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

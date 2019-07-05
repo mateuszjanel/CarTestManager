@@ -1,5 +1,6 @@
 ﻿using CarTestManager.Models;
 using DatabaseLayer.Entities;
+using Repositories;
 using Repositories.Repositories;
 using Services;
 using System;
@@ -10,9 +11,11 @@ using System.Web.Mvc;
 
 namespace CarTestManager.Controllers
 {
+    [Authorize]
     public class TestController : Controller
     {
         TestRepository testRepository = new TestRepository();
+        CarRepository carRepository = new CarRepository();
         AccelerationService accelerationService = new AccelerationService();
         // GET: Test
         public ActionResult Index()
@@ -21,6 +24,10 @@ namespace CarTestManager.Controllers
             {
                 Tests = testRepository.GetAll()
             };
+            foreach(var test in model.Tests)
+            {
+                test.Car = carRepository.Get(test.CarId);
+            }
             return View(model);
         }
 
@@ -33,7 +40,7 @@ namespace CarTestManager.Controllers
         // GET: Test/Create
         public ActionResult Create(int? id) //Id of tested car
         {
-            Test model = new Test()
+            Test model = new Test
             {
                 CarId = (int)id,
             };
@@ -61,47 +68,62 @@ namespace CarTestManager.Controllers
         }
 
         // GET: Test/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id != null)
+            {
+                Test model = testRepository.Get(id);
+                return View(model);
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Test/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Test model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                try
+                {
+                    model.Acceleration = accelerationService.CalculateAcceleration((float)model.TimeToHundred);
+                    testRepository.Edit(model);
+                    return RedirectToAction("Edit", "Car", new { id = model.CarId });
+                }
+                catch
+                {
+                    return View(model);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
         // GET: Test/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
-        }
-
-        // POST: Test/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            if (id == null)
             {
-                // TODO: Add delete logic here
-
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            int carId = testRepository.Get(id).CarId;
+            testRepository.Delete(id);
+            return RedirectToAction("Edit", "Car", new { id = carId });
         }
+
+        //// POST: Test/Delete/5
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
+
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }
