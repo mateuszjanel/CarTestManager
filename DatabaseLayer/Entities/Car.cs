@@ -15,8 +15,6 @@ namespace DatabaseLayer.Entities
         [Required] public string CarModel { get; set; }
         public int Year { get; set; }
         public string Engine { get; set; }
-        [Display(Name ="Fuel Economy")]
-        public float? FuelConsumingPer100km { get; set; }
         public virtual ICollection<Test> Tests { get; set; }
     }
 }

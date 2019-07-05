@@ -12,15 +12,14 @@ namespace Repositories
     public class CarRepository
     {
         private DBContext db = new DBContext();
-        public Car Create(string make, string model, int year, string engine, float? fuelconsuming)
+        public Car Create(string make, string model, int year, string engine)
         {
             Car car = new Car
             {
                 Make = make,
                 CarModel = model,
                 Year = year,
-                Engine = engine,
-                FuelConsumingPer100km = fuelconsuming
+                Engine = engine
             };
             Add(car);
             return car;
@@ -89,7 +88,7 @@ namespace Repositories
             {
                 return db.Cars.ToList();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw new Exception();
             }
@@ -104,7 +103,7 @@ namespace Repositories
             {
                 return db.Cars.Find(id).Tests.ToList();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw new Exception();
             }
