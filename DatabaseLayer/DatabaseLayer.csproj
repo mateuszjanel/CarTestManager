@@ -82,6 +82,10 @@
     <Compile Include="Migrations\201907042315244_virtual_collection.Designer.cs">
       <DependentUpon>201907042315244_virtual_collection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907050750592_remove_unused_fields.cs" />
+    <Compile Include="Migrations\201907050750592_remove_unused_fields.Designer.cs">
+      <DependentUpon>201907050750592_remove_unused_fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907042315244_virtual_collection.resx">
       <DependentUpon>201907042315244_virtual_collection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907050750592_remove_unused_fields.resx">
+      <DependentUpon>201907050750592_remove_unused_fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
