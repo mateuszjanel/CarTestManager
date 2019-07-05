@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repositories.Repositories
 {
-    class TestRepository : ITestRepository
+    public class TestRepository : ITestRepository
     {
         DBContext db = new DBContext();
         public Test Create(Car car, float toHundred, float acceleration)

@@ -31,67 +31,89 @@ namespace CarTestManager.Controllers
         // GET: Car/Create
         public ActionResult Create()
         {
-            return View();
+            CreateCarModels model = new CreateCarModels();
+            return View(model);
         }
 
         // POST: Car/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CreateCarModels model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                try
+                {
+                    carRepository.Create(model.Make, model.CarModel, model.Year, model.Engine, model.FuelConsumingPer100km);
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            catch
+            else
             {
                 return View();
             }
         }
 
         // GET: Car/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if(id != null)
+            {
+                Car model = carRepository.Get(id);
+                return View(model);
+
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Car/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Car model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                try
+                {
+                    carRepository.Edit(model);
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View(model);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
         // GET: Car/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            carRepository.Delete(id);
+            return RedirectToAction("Index");
         }
 
         // POST: Car/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }

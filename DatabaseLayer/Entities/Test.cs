@@ -14,7 +14,8 @@ namespace DatabaseLayer.Entities
         [ForeignKey("Car")]
         public int CarId { get; set; }
         public Car Car { get; set; }
-        public float TimeToHundred { get; set; }
-        public float Acceleration { get; set; }
+        [Display(Name ="Time 0-100km/h")]
+        public float? TimeToHundred { get; set; }
+        public float? Acceleration { get; set; }
     }
 }
