@@ -74,6 +74,14 @@
     <Compile Include="Migrations\201907041859494_names_fix.Designer.cs">
       <DependentUpon>201907041859494_names_fix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907042310096_test_nullable_variables.cs" />
+    <Compile Include="Migrations\201907042310096_test_nullable_variables.Designer.cs">
+      <DependentUpon>201907042310096_test_nullable_variables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907042315244_virtual_collection.cs" />
+    <Compile Include="Migrations\201907042315244_virtual_collection.Designer.cs">
+      <DependentUpon>201907042315244_virtual_collection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +101,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907041859494_names_fix.resx">
       <DependentUpon>201907041859494_names_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907042310096_test_nullable_variables.resx">
+      <DependentUpon>201907042310096_test_nullable_variables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907042315244_virtual_collection.resx">
+      <DependentUpon>201907042315244_virtual_collection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

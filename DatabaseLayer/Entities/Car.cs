@@ -16,6 +16,6 @@ namespace DatabaseLayer.Entities
         public string Engine { get; set; }
         [Display(Name ="Fuel Economy")]
         public float? FuelConsumingPer100km { get; set; }
-        public ICollection<Test> Tests { get; set; }
+        public virtual ICollection<Test> Tests { get; set; }
     }
 }

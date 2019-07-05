@@ -4,6 +4,8 @@
     ViewBag.Title = "Edit";
 }
 
+@Styles.Render("~/Content/General.css")
+
 <h2>Edit</h2>
 
 <div class="container">
@@ -77,8 +79,9 @@
             {
                 <table class="table">
                     <tr>
-                        <th>0-100 km/h</th>
-                        <th>Acceleration</th>
+                        <th>Time 0-100km/h [s]</th>
+                        <th>Acceleration [km/s^2]</th>
+                        <th></th>
                     </tr>
                     @foreach (var item in Model.Tests)
                     {
@@ -88,6 +91,41 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Acceleration)
+                            </td>
+                            <td class="k-chart">
+                                @(Html.Kendo().Chart()
+                                      .Name("chart"+item.Id.ToString())
+                                      .Legend(legend => legend
+                                          .Visible(false)
+                                      )
+                                      .Series(series =>
+                                      {
+                                          series.Bullet(new double?[][] { new double?[] { item.Acceleration, item.Acceleration } });
+                                      })
+                                      .ChartArea(chartArea => chartArea.Margin(0))
+                                      .CategoryAxis(axis => axis
+                                          .MajorGridLines(lines => lines.Visible(false))
+                                          .MajorTicks(lines => lines.Visible(false))
+                                      )
+                                      .ValueAxis(axis => axis
+                                          .Numeric()
+                                          .Min(0)
+                                          .Max(30)
+                                          .MinorTicks(lines => lines.Visible(true))
+                                          .MajorGridLines(lines => lines.Visible(false))
+                                          .PlotBands(bands =>
+                                          {
+                                              bands.Add().From(0).To(10).Color("yellow").Opacity(0.3);
+                                              bands.Add().From(10).To(20).Color("orange").Opacity(0.3);
+                                              bands.Add().From(20).To(30).Color("red").Opacity(0.3);
+                                          })
+                                      )
+                                      .Tooltip(tooltip => tooltip
+                                          .Visible(true)
+                                          .Shared(true)
+                                          .Template("Maximum: #= value.target # <br /> Average: #= value.current #")
+                                      )
+                                )
                             </td>
                         </tr>
                     }
