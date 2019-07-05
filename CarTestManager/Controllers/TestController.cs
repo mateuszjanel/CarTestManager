@@ -50,7 +50,7 @@ namespace CarTestManager.Controllers
                 {
                     model.Acceleration = accelerationService.CalculateAcceleration((float)model.TimeToHundred);
                     testRepository.Add(model);
-                    return RedirectToAction("Index","Car");
+                    return RedirectToAction("Edit","Car", new { id = model.CarId });
                 }
                 catch
                 {
