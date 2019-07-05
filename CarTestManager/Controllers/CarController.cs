@@ -43,7 +43,7 @@ namespace CarTestManager.Controllers
             {
                 try
                 {
-                    carRepository.Create(model.Make, model.CarModel, model.Year, model.Engine, model.FuelConsumingPer100km);
+                    carRepository.Create(model.Make, model.CarModel, model.Year, model.Engine);
                     return RedirectToAction("Index");
                 }
                 catch
